@@ -3,7 +3,6 @@ Context::addHtmlHeader('<meta name="viewport" content="width=device-width, initi
 Context::addHtmlHeader('<meta name="format-detection" content="telephone=no" />');
 Context::addHtmlHeader('<meta name="apple-mobile-web-app-capable" content="yes" />');
 
-$adblock_mid_list = array('best', 'humor', 'notice', 'mgr');
 }
 
 <!--//CSS-->
@@ -126,22 +125,6 @@ $adblock_mid_list = array('best', 'humor', 'notice', 'mgr');
 	</div>
 
 
-	<!--@if(in_array($module_info->mid,$adblock_mid_list))-->
-	<div class="ad-box">
-		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-		<!-- 11 -->
-		<ins class="adsbygoogle"
-			style="display:block"
-			data-ad-client="ca-pub-5172770399035601"
-			data-ad-slot="7318628971"
-			data-ad-format="auto"></ins>
-		<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-	</div>
-	<!--@end-->
-
-	<div class="shout" cond="$module_info->mid=='mgr'">
-		<img class="zbxe_widget_output" widget="plusadWidget" skin="default" colorset="default" widget_sequence="512297" widget_cache="5m" name="shout" ad_point_use="yes" nick_name="no" link_type="new" />
-	</div>
 
 	<section id="main-content">
 		<h2 class="top-title">
