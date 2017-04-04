@@ -1,0 +1,63 @@
+<ul id="menu-list">
+
+	<block loop="$main_menu->list => $key1, $val1">
+
+	<li class="menu-level0">
+		<a href="{$val1['href']}">{$val1['link']}</a>
+	</li>
+
+	<li cond="empty($val1['list'])" class="menu-level1">
+		<table class="menu-level2">
+			<tbody>
+				<tr>
+					<td class="on"|cond="$val1['selected']">
+						<a href="{$val1['href']}">{$val1['link']}</a>
+					</td>
+					<td class="blank">
+					</td>
+					<td class="blank">
+					</td>
+					<td class="blank">
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</li>
+
+	<li cond="$val1['list']" class="menu-level1">
+
+		<table class="menu-level2">
+			<tbody>
+
+{@
+$count = 0;
+$end_count = count($val1['list'])-1;
+$dummy_count = 3-$end_count&3;
+}
+				<block loop="$val1['list'] => $key2, $val2">
+
+				<!--@if(!($count&3))--><tr><!--@end-->
+					<td class="on"|cond="$val2['selected']">
+						<a href="{$val2['href']}">{$val2['link']}</a>
+					</td>
+
+					<td cond="$count == $end_count" loop="$dummy_count != 0" class="blank">
+{@
+$dummy_count--;
+}
+					</td>
+
+				<!--@if(($count&3) == 3 || $count == $end_count)--></tr><!--@end-->
+{@
+$count++;
+}
+				</block>
+
+			</tbody>
+		</table>
+
+	</li>
+
+	</block>
+
+</ul>

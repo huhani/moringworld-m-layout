@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.2">
+    <title xml:lang="ko">Moring Mobile 테마 개발용.</title>
+    <title xml:lang="en">Moring Mobile Themes</title>
+    <description xml:lang="ko">Moring Mobile 테마</description>
+    <description xml:lang="en">Moring Mobile Themes</description>
+    <version>0.1</version>
+    <date>2017-12-31</date>
+    <link></link>
+
+    <author email_address="mmia268@gmail.com" link="">
+        <name xml:lang="ko">후하니</name>
+        <name xml:lang="en">Huhani</name>
+    </author>
+    <extra_vars>
+	<group>
+	<title xml:lang="ko">일반 설정</title>
+	<title xml:lang="en">General Settings</title>
+	<description xml:lang="ko">메인페이지는 슬라이드, 위젯등이 포함됩니다.</description>
+
+		<var name="site_name" type="text">
+			<title xml:lang="ko">사이트 이름</title>
+			<title xml:lang="en">Site name</title>
+		</var>
+
+		<var name="site_name_long" type="text">
+			<title xml:lang="ko">사이트 이름 상세</title>
+			<title xml:lang="en">Site name long</title>
+		</var>
+
+		<var name="index_url" type="text">
+			<title xml:lang="ko">홈 페이지 URL</title>
+			<title xml:lang="en">Homepage URL</title>
+			<description xml:lang="ko">로고를 클릭시에 이동할 홈 페이지 URL을 입력해 주세요.</description>
+			<description xml:lang="en">Please input the URL to redirect when user clicks the logo.</description>
+		</var>
+
+		<var name="footer_copyright" type="text">
+			<title xml:lang="ko">하단 저자권</title>
+			<title xml:lang="en">Copyright of footer</title>
+		</var>
+
+		<var name="footer_info" type="text">
+			<title xml:lang="ko">하단 추가정보</title>
+			<title xml:lang="en">Footer Infomation</title>
+		</var>
+
+	</group>
+
+	</extra_vars>
+    <menus>
+        <menu name="main_menu" maxdepth="3" default="true">
+            <title xml:lang="ko">메인 메뉴</title>
+            <title xml:lang="en">Top menu</title>
+        </menu>
+        <menu name="bottom_menu" maxdepth="1" default="true">
+            <title xml:lang="ko">하단메뉴</title>
+            <title xml:lang="en">Bottom Menu</title>
+        </menu>
+    </menus>
+</layout>

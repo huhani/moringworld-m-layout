@@ -1,0 +1,60 @@
+<div id="menu-list-config">
+
+
+	<div class="config-group">
+		<label class="control-label" for="select_color">색상 선택</label>
+		<div class="controls fr">
+			<select id="select_color" class="selector" disabled="disabled">
+				<option value="white">흰색테마</option>
+				<option value="gray">회색테마</option>
+				<option value="black">검정테마</option>
+			</select>
+		</div>
+		<p class="help">레이아웃 및 스킨 색상 설정</p>
+	</div>
+
+	<div class="config-group">
+		<label class="control-label" for="use_noti">일반 알림(실시간) 사용</label>
+		<div class="controls fr">
+			<a id="use_noti" class="selector checkbox" href="javascript:;">
+				<i class="fa fa-square-o" aria-hidden="true"></i>
+			</a>
+		</div>
+		<p class="help">개인, (비)추천 수, 댓글 수 알림</p>
+	</div>
+
+	<div class="config-group">
+		<label class="control-label" for="use_noti_best">베스트 알림(실시간) 사용</label>
+		<div class="controls fr">
+			<a id="use_noti_best" class="selector checkbox" href="javascript:;">
+				<i class="fa fa-square-o" aria-hidden="true"></i>
+			</a>
+		</div>
+		<p class="help">새 베스트 글 알림</p>
+	</div>
+
+	<div class="config-group">
+		<label class="control-label" for="log_readed_log">읽은 게시글 기록</label>
+		<div class="controls fr">
+			<a id="log_readed_log" class="selector checkbox" href="javascript:;">
+				<i class="fa fa-square-o" aria-hidden="true"></i>
+			</a>
+		</div>
+		<p class="help">최근 읽은 게시글을 확인</p>
+	</div>
+
+	<div class="config-group">
+		<label class="control-label" for="use_data_save">데이터 절약 모드</label>
+		<div class="controls fr">
+			<a id="use_data_save" class="selector checkbox<!--@if($_COOKIE['txtmode'])--> checked<!--@end-->" href="javascript:;">
+				<!--@if($_COOKIE['txtmode'])-->
+					<i class="fa fa-check-square-o" aria-hidden="true"></i>
+				<!--@else-->
+					<i class="fa fa-square-o" aria-hidden="true"></i>
+				<!--@end-->
+			</a>
+		</div>
+		<p class="help">게시글의 이미지 출력을 차단.</p>
+	</div>
+
+</div>

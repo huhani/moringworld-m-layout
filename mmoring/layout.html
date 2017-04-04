@@ -1,0 +1,218 @@
+{@
+Context::addHtmlHeader('<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">');
+Context::addHtmlHeader('<meta name="format-detection" content="telephone=no" />');
+Context::addHtmlHeader('<meta name="apple-mobile-web-app-capable" content="yes" />');
+
+$adblock_mid_list = array('best', 'humor', 'notice', 'mgr');
+}
+
+<!--//CSS-->
+<load target="css/style.css" />
+<load target="https://cdn.jsdelivr.net/fontawesome/4.2.0/css/font-awesome.min.css" />
+<!--//<load target="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css" />-->
+
+<!--//JS -->
+<load target="js/mmoring.js" />
+<!--//<load target="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.min.js" />-->
+<!--//<load target="js/swiper.min.js" />-->
+
+
+
+<div id="container">
+	<header class="main">
+		<h1 style="display: none;">{$layout_info->site_name_long}</h1>
+		<button class="menu-trigger dButton"><i class="fa fa-bars" aria-hidden="true"></i></button>
+	</header>
+
+	<div id="main-menu">
+
+		<div class="menu-top">
+			<ul class="site-title-menu">
+				<li class="site-main">
+					<!--@if($layout_info->index_url)-->
+					<a href="{$layout_info->index_url}">
+						{$layout_info->site_name}
+					</a>
+					<!--@else-->
+						{$layout_info->site_name}
+					<!--@end-->
+				</li>
+
+				<!--@if($is_logged)-->
+
+				<li class="logout">
+					<a href="{getUrl('act','dispMemberLogout')}">
+						{$lang->cmd_logout}
+					</a>
+				</li>
+
+				<li cond="$logged_info->is_admin == 'Y'" class="admin">
+					<a href="{getUrl('', 'module', 'admin')}">
+						{$lang->cmd_management}
+					</a>
+				</li>
+
+				<!--@else-->
+
+				<li class="join">
+					<a href="{getUrl('act','dispMemberSignUpForm')}">
+						{$lang->cmd_signup}
+					</a>
+				</li>
+
+				<!--@end-->
+
+				<li class="close">
+					<a href="javascript:;" class="menu-close">
+						<i class="fa fa-times" aria-hidden="true"></i> 닫기
+					</a>
+				</li>
+			</ul>
+		</div>
+
+		<div class="menu-content">
+
+			<!--// BOARD LIST -->
+			<div id="list_board">
+				<include target="_menu_list.html" />
+			</div>
+
+
+			<!--// READED DOCUMENT -->
+			<div id="list_readed_doc">
+				<div class="top-comment">
+					<span>최근 읽은 게시글을 확인 할 수 있습니다.</span>
+					<button type="button" id="btnReadedDelete" class="readed_delete">기록모두삭제</button>
+				</div>
+
+				<ul class="view_contents">
+				</ul>
+			</div>
+	
+
+			<!--// CONFIG -->
+			<div id="list_config">
+				<include target="_menu_config.html" />
+			</div>
+
+			<!--// MEMBER INFO -->
+			<div id="list_member">
+				<include target="_menu_member.html" />
+			</div>
+		</div>
+
+		<div class="menu-bottom">
+			<ul id="menu-config">
+				<li>
+					<a class="board" href="javascript:;">게시판</a>
+				</li>
+				<li>
+					<a class="readed" href="javascript:;">읽은 글</a>
+				</li>
+				<li>
+					<a class="config" href="javascript:;">설정</a>
+				</li>
+				<li class="last">
+					<a class="member" href="javascript:;">{$is_logged ? "마이페이지" : "로그인"}</a>
+				</li>
+			</ul>
+
+		</div>
+
+
+	</div>
+
+	<div id="menu-bd">
+	</div>
+
+
+	<!--@if(in_array($module_info->mid,$adblock_mid_list))-->
+	<div class="ad-box">
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- 11 -->
+		<ins class="adsbygoogle"
+			style="display:block"
+			data-ad-client="ca-pub-5172770399035601"
+			data-ad-slot="7318628971"
+			data-ad-format="auto"></ins>
+		<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+	</div>
+	<!--@end-->
+
+	<div class="shout" cond="$module_info->mid=='mgr'">
+		<img class="zbxe_widget_output" widget="plusadWidget" skin="default" colorset="default" widget_sequence="512297" widget_cache="5m" name="shout" ad_point_use="yes" nick_name="no" link_type="new" />
+	</div>
+
+	<section id="main-content">
+		<h2 class="top-title">
+			<a href="{$layout_info->index_url}">{$layout_info->site_name}</a>
+		</h2>
+
+		{$content}
+	</section>
+
+	<a href="#" class="btTop" id="btTop">
+		<i class="fa fa-arrow-up" aria-hidden="true"></i>
+	</a>
+
+	<footer id="main-footer">
+
+		<ul class="btm-menu1">
+
+			<li cond="!$is_logged">
+				<a href="{getUrl('act', 'dispMemberLoginForm')}" class="d_btn">{$lang->cmd_login}</a>
+			</li>
+
+			<li cond="$is_logged">
+				<a href="{getUrl('act', 'dispMemberInfo')}" class="d_btn">{$lang->cmd_view_member_info}</a>
+			</li>
+
+			<li cond="$is_logged">
+				<a href="{getUrl('act', 'dispMemberLogout')}" class="d_btn">{$lang->cmd_logout}</a>
+			</li>
+						
+			<li cond="!$is_logged">
+				<a href="{getUrl('act', 'dispMemberSignUpForm')}" class="d_btn">{$lang->cmd_signup}</a>
+			</li>
+
+			<li>
+				<a href="{getUrl('m', '0')}" class="d_btn">PC</a>
+			</li>
+
+		</ul>
+
+		<ul class="btm-menu2">
+			<block loop="$bottom_menu->list => $val">
+
+			<!--@if($val["link"])-->
+			<li>
+				<a href="{$val['href']}">{$val["text"]}</a>
+			</li>
+			<!--@end-->
+
+			</block>
+		</ul>
+
+		<div class="btm-info">
+			<span cond="$layout_info->footer_copyright" class="footer-copyright">
+				{$layout_info->footer_copyright}
+			</span>
+
+			<span cond="$layout_info->footer_info" class="footer-info" style="margin-top: 15px;"|cond="!$layout_info->footer_copyright">
+				{$layout_info->footer_info}
+			</span>
+		</div>
+
+		<?php global $amung_block_list; $__Context->amung_block_list = $amung_block_list; ?>
+		<div cond="!in_array($module_info->mid,$amung_block_list)" class="conn" style="margin-top:20px;">
+			<script id="_waum5e">
+			var _wau = _wau || []; _wau.push(["small", "s7y39u6b3m0a", "m5e"]);
+			(function() {var s=document.createElement("script"); s.async=true;
+			s.src="//widgets.amung.us/small.js";
+			document.getElementsByTagName("head")[0].appendChild(s);
+			})();
+			</script>
+		</div>
+
+	</footer>
+</div>
